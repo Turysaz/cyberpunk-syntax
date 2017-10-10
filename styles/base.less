@@ -1,6 +1,7 @@
 @import "syntax-variables";
 
 atom-text-editor,atom-text-editor {
+    /* absolute default values */
   background-color: @syntax-background-color;
   color: @syntax-text-color;
   text-shadow: 0px 0px @blur @syntax-text-color;
@@ -25,12 +26,15 @@ atom-text-editor,atom-text-editor {
 
     .line-number {
       &.cursor-line {
+          /* gutter selection */
         background-color: @syntax-gutter-background-color-selected;
         color: @syntax-gutter-text-color-selected;
       }
 
       &.cursor-line-no-selection {
+          /* gutter selection*/
         color: @syntax-gutter-text-color-selected;
+        text-shadow: 0px 0px @blur @syntax-gutter-text-color-selected;
       }
     }
   }
@@ -47,15 +51,22 @@ atom-text-editor,atom-text-editor {
 
 atom-text-editor.is-focused,atom-text-editor {
   .cursor {
+      /* cursor */
     border-color: @syntax-cursor-color;
+    box-shadow: 0px 0px @blur #FFFFFF;
   }
 
   .selection .region {
-    background-color: @syntax-selection-color;
+      /* selection (visual mode) */
+    background-color: rgba(100,80,150,0.3);
+    box-shadow: 0px 0px @blur rgba(100,80,150,0.3);
   }
 
   .line-number.cursor-line-no-selection, .line.cursor-line {
+      /* current line highlighting */
     background-color: #282828;
+    box-shadow: 0px 0px @blur rgba(255,255,255,0.3);
+    border: 1px #ffffff;
   }
 }
 
